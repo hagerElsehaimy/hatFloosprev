@@ -48,7 +48,7 @@ class Donation(models.Model):
     amount = models.IntegerField()
 
     def __str__(self):
-        return self.amount
+        return self.project.title
 
 
 class Rate(models.Model):

@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>{{ user.first_name }}</title>
+</head>
+<body>
+<!--<form>-->
+
+  <!--{{ user.picture }}-->
+  <!--{{ user.country }}-->
+    <!---->
+<!--</form>-->
+<form method="POST">
+    {% csrf_token %}
+
+   <!--<input type="text" value="{{ user.first_name }}">-->
+  <!--<input type="text" value="{{ user.last_name }}">-->
+  <!--<input type="text" value="{{ user.email }}">-->
+  <!--<input type="date" value="{{ user.DOB }}">-->
+        {{ form.as_p }}
+        <input type="submit">
+</form>
+<a href="{{ user.FB }}">facebook</a>
+
+</body>
+</html>
