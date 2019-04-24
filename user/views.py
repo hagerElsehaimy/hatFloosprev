@@ -5,8 +5,12 @@ from . import form
 
 
 def get_user_info(request, id):
-    user = {"user": models.User.objects.get(id=id)}
-    userr = models.User.objects.get(id=id)
-    user_form = form.UserProfileForm(initial={'first_name':userr.first_name,'last_name': userr.last_name,'Email': userr.email})
+    user = models.User.objects.get(id=id)
+    if request.method == 'GET':
+        user_form = form.UserProfileForm(
+            initial={'first_name': user.first_name, 'last_name': user.last_name, 'email': user.email,
+                     'password': user.password, 'date': user.DOB, 'country': user.country, 'phone': user.phone})
+    else:
+        pass
 
-    return render(request, 'user/profile.html', {"user": user, "form": user_form})
+    return render(request, 'user/profile.html', {"form": user_form})
